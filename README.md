@@ -56,3 +56,19 @@ surface = pygame.Surface((self.range * 4, self.range * 4), pygame.SRCALPHA, 32):
 pygame.draw.circle(surface, self.place_color, (50, 50), 50, 0): Mit dieser Zeile wird ein Kreis auf der Surface gezeichnet. Die Farbe des Kreises wird durch self.place_color bestimmt, und der Kreis hat einen Mittelpunkt bei (50, 50) und einen Radius von 50.
 
 win.blit(surface, (self.x - 50, self.y - 50)): Die Surface mit dem gezeichneten Kreis wird auf die Spielfläche (win) geblitet (kopiert). Die Position wird so berechnet, dass der Mittelpunkt des Kreises mit dem Turm übereinstimmt.
+
+
+In diesem Abschnitt des Codes gibt es drei Methoden: click, sell und upgrade. Lass uns sie einzeln durchgehen:
+
+click(self, X, Y): Diese Methode wird aufgerufen, um zu überprüfen, ob auf den Turm geklickt wurde. Wenn ja, wird der Turm ausgewählt. Hier sind die Details:
+
+X und Y sind die Koordinaten des Mausklicks.
+Es wird überprüft, ob die Mauskoordinaten innerhalb der Begrenzungen des Turms liegen. Wenn ja, gibt die Methode True zurück, was bedeutet, dass der Turm geklickt wurde und ausgewählt ist.
+sell(self): Diese Methode wird aufgerufen, um den Turm zu verkaufen. Sie gibt den Verkaufspreis des Turms zurück, abhängig von seiner aktuellen Stufe.
+
+return self.sell_price[self.level-1]: Gibt den Verkaufspreis des Turms für seine aktuelle Stufe zurück.
+upgrade(self): Diese Methode wird aufgerufen, um den Turm zu verbessern.
+
+if self.level < len(self.tower_imgs):: Überprüft, ob der Turm nicht bereits auf der höchsten Stufe ist.
+self.level += 1: Erhöht die Stufe des Turms.
+self.damage += 1: Erhöht den Schaden des Turms.
