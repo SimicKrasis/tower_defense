@@ -38,3 +38,13 @@ img = self.tower_imgs[self.level - 1]: Hier wird das Bild des Turms basierend au
 win.blit(img, (self.x - img.get_width() // 2, self.y - img.get_height() // 2)): Hier wird das ausgewählte Bild des Turms auf die Spielfläche (win) gezeichnet. Die Position wird so berechnet, dass das Bild um die Hälfte seiner Breite und Höhe verschoben wird, um die Position korrekt zu zentrieren.
 
 if self.selected: self.menu.draw(win): Wenn der Turm ausgewählt ist (self.selected ist True), wird das Menü des Turms auf der Spielfläche gezeichnet. Dies geschieht mit der draw-Methode des Menüs.
+
+if self.selected:: Überprüft, ob der Turm ausgewählt ist.
+
+self.menu.draw(win): Zeichnet das Menü des Turms auf der Spielfläche (win).
+
+surface = pygame.Surface((self.range * 4, self.range * 4), pygame.SRCALPHA, 32): Hier wird eine Surface in Pygame erstellt. Diese Surface wird dazu verwendet, den transparenten Kreis zu zeichnen, der den Bereich des Turms repräsentiert. Die Größe der Surface ist self.range * 4 (viermal so groß wie der Bereich des Turms) in Breite und Höhe.
+
+pygame.draw.circle(surface, (128, 128, 128, 100), (self.range, self.range), self.range, 0): Mit dieser Zeile wird ein Kreis auf der Surface gezeichnet. Die Farbe des Kreises ist grau mit einer Transparenz von 100 (128, 128, 128, 100). Der Kreis ist im Mittelpunkt (self.range, self.range) mit einem Radius self.range. Der Parameter 0 bedeutet, dass der Kreis vollständig ausgefüllt ist.
+
+win.blit(surface, (self.x - self.range, self.y - self.range)): Die Surface mit dem gezeichneten Kreis wird auf die Spielfläche (win) geblitet (kopiert). Die Position wird so berechnet, dass der Mittelpunkt des Kreises mit dem Turm übereinstimmt.
