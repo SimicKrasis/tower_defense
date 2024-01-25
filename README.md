@@ -72,3 +72,19 @@ upgrade(self): Diese Methode wird aufgerufen, um den Turm zu verbessern.
 if self.level < len(self.tower_imgs):: Überprüft, ob der Turm nicht bereits auf der höchsten Stufe ist.
 self.level += 1: Erhöht die Stufe des Turms.
 self.damage += 1: Erhöht den Schaden des Turms.
+
+get_upgrade_cost(self): Diese Methode gibt die Upgrade-Kosten für den Turm zurück, abhängig von seiner aktuellen Stufe.
+
+return self.price[self.level-1]: Gibt den Upgrade-Preis für die aktuelle Stufe des Turms zurück.
+move(self, x, y): Diese Methode verschiebt den Turm an eine neue Position (x, y) auf dem Spielfeld.
+
+self.x = x: Setzt die neue x-Position des Turms.
+self.y = y: Setzt die neue y-Position des Turms.
+self.menu.x = x: Setzt auch die x-Position des Menüs des Turms auf die neue Position.
+self.menu.y = y: Setzt auch die y-Position des Menüs des Turms auf die neue Position.
+self.menu.update(): Aktualisiert das Menü nach der Verschiebung des Turms.
+collide(self, otherTower): Diese Methode überprüft, ob der Turm mit einem anderen Turm (otherTower) kollidiert. Die Kollision wird anhand der Entfernung zwischen den beiden Türmen überprüft.
+
+x2 = otherTower.x, y2 = otherTower.y: Holt die Koordinaten des anderen Turms.
+dis = math.sqrt((x2 - self.x)**2 + (y2-self.y)**2): Berechnet die Entfernung zwischen den beiden Türmen mithilfe des Satzes des Pythagoras.
+Wenn die Entfernung größer oder gleich 100 ist, wird False zurückgegeben (keine Kollision). Andernfalls wird True zurückgegeben (Kollision).
