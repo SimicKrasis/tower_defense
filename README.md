@@ -48,3 +48,11 @@ surface = pygame.Surface((self.range * 4, self.range * 4), pygame.SRCALPHA, 32):
 pygame.draw.circle(surface, (128, 128, 128, 100), (self.range, self.range), self.range, 0): Mit dieser Zeile wird ein Kreis auf der Surface gezeichnet. Die Farbe des Kreises ist grau mit einer Transparenz von 100 (128, 128, 128, 100). Der Kreis ist im Mittelpunkt (self.range, self.range) mit einem Radius self.range. Der Parameter 0 bedeutet, dass der Kreis vollständig ausgefüllt ist.
 
 win.blit(surface, (self.x - self.range, self.y - self.range)): Die Surface mit dem gezeichneten Kreis wird auf die Spielfläche (win) geblitet (kopiert). Die Position wird so berechnet, dass der Mittelpunkt des Kreises mit dem Turm übereinstimmt.
+
+def draw_placement(self, win):: Hier wird die Methode draw_placement definiert, die den Platzierungsbereich eines Turms zeichnet.
+
+surface = pygame.Surface((self.range * 4, self.range * 4), pygame.SRCALPHA, 32): Hier wird eine Surface in Pygame erstellt, die wieder dazu verwendet wird, den transparenten Kreis für den Platzierungsbereich zu zeichnen. Die Größe der Surface ist self.range * 4 (viermal so groß wie der Bereich des Turms) in Breite und Höhe.
+
+pygame.draw.circle(surface, self.place_color, (50, 50), 50, 0): Mit dieser Zeile wird ein Kreis auf der Surface gezeichnet. Die Farbe des Kreises wird durch self.place_color bestimmt, und der Kreis hat einen Mittelpunkt bei (50, 50) und einen Radius von 50.
+
+win.blit(surface, (self.x - 50, self.y - 50)): Die Surface mit dem gezeichneten Kreis wird auf die Spielfläche (win) geblitet (kopiert). Die Position wird so berechnet, dass der Mittelpunkt des Kreises mit dem Turm übereinstimmt.
