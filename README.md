@@ -29,3 +29,12 @@ self.damage = 1: Hier wird der Schaden des Turms auf 1 initialisiert. Dies könn
 self.place_color = (0, 0, 255, 100): Die Farbe, die den Platz für den Turm repräsentiert, wird festgelegt. In diesem Fall ist es eine transparente blaue Farbe.
 
 Es sieht insgesamt gut aus, aber beachte den oben genannten Punkt bezüglich des Fehlers beim Zugriff auf sell.price. Falls du weitere Fragen oder Klärungen benötigst, stehe ich zur Verfügung.
+
+
+def draw(self, win):: Hier wird die Methode draw definiert, die ein Bild des Turms auf die Spielfläche (win) zeichnet.
+
+img = self.tower_imgs[self.level - 1]: Hier wird das Bild des Turms basierend auf der aktuellen Stufe (level) aus der Liste tower_imgs ausgewählt. Beachte, dass die Stufen bei 1 beginnen, daher wird self.level - 1 verwendet, um den korrekten Index in der Liste zu erhalten.
+
+win.blit(img, (self.x - img.get_width() // 2, self.y - img.get_height() // 2)): Hier wird das ausgewählte Bild des Turms auf die Spielfläche (win) gezeichnet. Die Position wird so berechnet, dass das Bild um die Hälfte seiner Breite und Höhe verschoben wird, um die Position korrekt zu zentrieren.
+
+if self.selected: self.menu.draw(win): Wenn der Turm ausgewählt ist (self.selected ist True), wird das Menü des Turms auf der Spielfläche gezeichnet. Dies geschieht mit der draw-Methode des Menüs.
